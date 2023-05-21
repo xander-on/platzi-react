@@ -5,9 +5,8 @@ import {
     TodoList, 
     TodoItem, 
     CreateTodoButton
-} from './components/index';
-import './App.css';
-import { useLocalStorage } from './hooks/';
+} from './todos/components/index';
+import { useLocalStorage } from './hooks';
 
 
 
