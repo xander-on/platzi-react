@@ -7,20 +7,14 @@ import {
     CreateTodoButton
 } from './components/index';
 import './App.css';
+import { useLocalStorage } from './hooks/';
 
-const defaultTodos = [
-    {id:1, description: 'Desayunar un pan', completed: true,  deleted: false },
-    {id:2, description: 'Hacer limpieza',   completed: false, deleted: false },
-    {id:3, description: 'Hacer ejercicio',  completed: true,  deleted: false },
-    {id:4, description: 'Estudiar React',   completed: false, deleted: false },
-];
+
 
 const App = () => {
 
-
-    const [ todos, setTodos ] = useState(defaultTodos);
+    const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
     const [ searchValue, setSearchValue ] = useState('');
-    // console.log(`Los usuarios buscan todos de ${ searchValue }`);
 
     const todosAvailable = todos.filter( todo => todo.deleted !== true)
     const completedTodos = todosAvailable.filter( todo => !!todo.completed ).length;
@@ -36,13 +30,13 @@ const App = () => {
     const completeTodo = (id) => {
         const newTodos = [...todos];
         newTodos[id-1].completed = !newTodos[id-1].completed;
-        setTodos( newTodos );
+        saveTodos( newTodos );
     }
 
     const deleteTodo = (id) => {
         const newTodos = [...todos];
         newTodos[id-1].deleted = true;
-        setTodos( newTodos );
+        saveTodos( newTodos );
     }
 
     return (
