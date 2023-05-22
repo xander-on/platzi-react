@@ -7,7 +7,7 @@ import {
     CreateTodoButton
 } from './todos/components/index';
 import { useLocalStorage } from './hooks';
-
+import { getTodos, handlerTodos } from './todos/helpers/';
 
 
 const App = () => {
@@ -15,28 +15,8 @@ const App = () => {
     const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
     const [ searchValue, setSearchValue ] = useState('');
 
-    const todosAvailable = todos.filter( todo => todo.deleted !== true)
-    const completedTodos = todosAvailable.filter( todo => !!todo.completed ).length;
-    const totalTodos     = todosAvailable.length;
-
-    const searchedTodos  = todosAvailable.filter( todo => 
-        (
-            todo.description.toLowerCase().includes(searchValue.toLowerCase()) 
-            && todo.deleted !== true
-        )
-    );
-
-    const completeTodo = (id) => {
-        const newTodos = [...todos];
-        newTodos[id-1].completed = !newTodos[id-1].completed;
-        saveTodos( newTodos );
-    }
-
-    const deleteTodo = (id) => {
-        const newTodos = [...todos];
-        newTodos[id-1].deleted = true;
-        saveTodos( newTodos );
-    }
+    const { totalTodos, completedTodos, searchedTodos} = getTodos(todos, searchValue);
+    const { completeTodo, deleteTodo } = handlerTodos(todos, saveTodos);
 
     return (
         <>
@@ -54,7 +34,7 @@ const App = () => {
                             key={todo.id} 
                             todo={todo}
                             onComplete={ () => completeTodo(todo.id) }
-                            onDelete={ () => deleteTodo(todo.id) }
+                            onDelete  ={ () => deleteTodo(todo.id) }
                         />
                     )
                 }

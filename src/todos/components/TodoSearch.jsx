@@ -7,7 +7,6 @@ export const TodoSearch = ({searchValue, setSearchValue}) => {
         setSearchValue( value );
     }
 
-
     return (
         <input 
             type       ="text" 
