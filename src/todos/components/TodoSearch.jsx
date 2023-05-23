@@ -10,7 +10,7 @@ export const TodoSearch = ({searchValue, setSearchValue}) => {
     return (
         <input 
             type       ="text" 
-            placeholder="picar cebolla" 
+            placeholder="Buscar un Todo" 
             className  ="TodoSearch"
             onChange   ={ inputChange }
             value      ={ searchValue }
