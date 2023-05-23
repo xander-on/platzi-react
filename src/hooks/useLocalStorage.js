@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // const defaultTodos = [
 //     {id:1, description: 'Desayunar un pan', completed: true,  deleted: false },
 //     {id:2, description: 'Hacer limpieza',   completed: false, deleted: false },
@@ -9,22 +9,50 @@ import { useState } from "react";
 // localStorage.setItem( 'TODOS_V1', JSON.stringify(defaultTodos) );
 
 export const useLocalStorage = ( itemName, initialValue ) => {
-    const localStorageItem = localStorage.getItem(itemName);
-    let itemValue;
 
-    if( !localStorageItem ){
-        localStorage.setItem( itemName, JSON.stringify(initialValue) );
-        itemValue = initialValue;
-    }else{
-        itemValue = JSON.parse( localStorageItem );
-    }
+    const [items, setItems]     = useState(initialValue);
+    const [loading, setLoading] = useState(true);
+    const [error, setError]     = useState(false);
 
-    const [item, setItem] = useState(itemValue);
+    
+    useEffect(() => {
+        setTimeout(()=>{
+            try{
+            
+                const localStorageItem = localStorage.getItem(itemName);
+                let itemValue;
+    
+                if( !localStorageItem ){
+                    localStorage.setItem( itemName, JSON.stringify(initialValue) );
+                    itemValue = initialValue;
+                }else{
+                    itemValue = JSON.parse( localStorageItem );
+                    if ((!!itemValue)===false) {
+                        throw new Error('Error al obtener los datos');
+                        itemValue=[];
+                    }
+                    setItems(itemValue);
+                }
+    
+                setLoading(false);
+            }catch(error){
+                setLoading(false);
+                setError(true);
+            }    
+        },3000);
+        
+    }, [ ]);
 
-    const saveItem = (newItem) => {
+    
+    const saveItems = (newItem) => {
         localStorage.setItem(itemName, JSON.stringify(newItem));
-        setItem(newItem);
+        setItems(newItem);
     }
 
-    return [item, saveItem];
+    return {
+        items,
+        saveItems,
+        loading,
+        error,
+    };
 }

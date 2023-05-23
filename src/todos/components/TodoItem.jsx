@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faTrash, faCircle, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import '../styles/todoItem.css';
 
