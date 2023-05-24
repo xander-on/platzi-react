@@ -1,6 +1,6 @@
 
 
-export const handlerTodos = (todos, saveTodos) => {
+export const handlerTodos = ({todos, saveTodos}) => {
 
     const completeTodo = (id) => {
         const newTodos = [...todos];

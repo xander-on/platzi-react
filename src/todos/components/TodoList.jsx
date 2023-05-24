@@ -7,8 +7,15 @@ import { faCircleExclamation, faBoxOpen } from "@fortawesome/free-solid-svg-icon
 
 export const TodoList = () => {
 
-    const { dataTodosLocalStorage, searchedTodos, completeTodo, deleteTodo } = useContext( TodosContext );
+    const { 
+        dataTodosLocalStorage, 
+        searchedTodos, 
+        completeTodo, 
+        deleteTodo 
+    } = useContext( TodosContext );
+
     const {loading, error} = dataTodosLocalStorage;
+    
     return (
         <>
             { loading && <TodoLoadingSkeleton/>}
@@ -16,7 +23,7 @@ export const TodoList = () => {
 
             { 
                 (!error && !loading && searchedTodos.length === 0) 
-                && <IconMessage icon={ faBoxOpen } message='No se encontraron resultados'/> 
+                && <IconMessage icon={ faBoxOpen } message='No se encontraron TODOS'/> 
             }
 
             {

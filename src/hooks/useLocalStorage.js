@@ -27,9 +27,9 @@ export const useLocalStorage = ( itemName, initialValue ) => {
                     itemValue = initialValue;
                 }else{
                     itemValue = JSON.parse( localStorageItem );
-                    if ((!!itemValue)===false) {
-                        throw new Error('Error al obtener los datos');
+                    if (!itemValue) {
                         itemValue=[];
+                        throw new Error('Error al obtener los datos');
                     }
                     setItems(itemValue);
                 }
