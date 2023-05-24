@@ -22,21 +22,24 @@ export const App = () => {
     const { totalTodos, completedTodos, searchedTodos} = getTodos(todos, searchValue);
 
     return (
-        <>
-            <TodoCounter completed={completedTodos} total={totalTodos}/>
+        <>  
+            <div className='container'>
+                <TodoCounter completed={completedTodos} total={totalTodos}/>
 
-            <TodoSearch 
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-            />
+                <TodoSearch 
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                />
 
-            <TodoList 
-                searchedTodos={searchedTodos}
-                dataTodosLocalStorage={dataTodosLocalStorage}   
-            />
-                
+                <TodoList 
+                    searchedTodos={searchedTodos}
+                    dataTodosLocalStorage={dataTodosLocalStorage}   
+                />
+                    
 
-            <CreateTodoButton />
+                <CreateTodoButton />
+            </div>
+           
         </>
     );
 }

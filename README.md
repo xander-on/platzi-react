@@ -6,3 +6,4 @@
 --uso de localstorage
 --hooks useState
 --custom hooks
+--skeleton css

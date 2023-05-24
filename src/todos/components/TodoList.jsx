@@ -1,6 +1,6 @@
 import { LoadingResponse, IconMessage } from '../../ui';
 import { handlerTodos } from "../helpers";
-import { TodoItem } from "../components";
+import { TodoItem, TodoLoadingSkeleton } from "../components";
 import { faCircleExclamation, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -12,7 +12,8 @@ export const TodoList = ({ searchedTodos, dataTodosLocalStorage}) => {
 
     return (
         <>
-            { loading && <LoadingResponse message={"Cargando TODOS..."}/> }
+            {/* { loading && <LoadingResponse message={"Cargando TODOS..."}/> } */}
+            { loading && <TodoLoadingSkeleton/>}
             { error   && <IconMessage icon={ faCircleExclamation } message='Ocurrio un error'/> }
 
             { 

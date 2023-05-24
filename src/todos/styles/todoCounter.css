@@ -1,11 +1,11 @@
 .TodoCounter {
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
     margin: 0;
-    padding: 48px;
+    padding: 16px;
     font-weight: normal;
   }
   
-  .TodoCounter span {
+  .TodoCounter h1 {
     font-weight: bold;
   }
