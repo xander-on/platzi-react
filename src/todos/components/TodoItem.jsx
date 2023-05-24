@@ -18,7 +18,9 @@ export const TodoItem = ({ todo, onComplete, onDelete }) => {
             : <FontAwesomeIcon icon={faCircle}/>
           }
         </span>
+
         <p className={`TodoItem-p ${completed ? 'TodoItem-p--complete': ''}`}>{ description }</p>
+        
         <span 
           className='Icon Icon-delete'
           onClick={onDelete}

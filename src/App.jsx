@@ -1,22 +1,9 @@
-import { 
-    TodoCounter, 
-    TodoSearch, 
-    TodoList, 
-    CreateTodoButton
-} from './todos/components/';
-import { TodosProvider } from './todos/context/';
+import { TodosApp } from "./todos/TodosApp";
 
 
 export const App = () => {
     return (
-        <TodosProvider>  
-            <div className='container'>
-                <TodoCounter/>
-                <TodoSearch />
-                <TodoList />  
-                <CreateTodoButton />
-            </div>
-        </TodosProvider>
+        <TodosApp />
     );
 }
 
