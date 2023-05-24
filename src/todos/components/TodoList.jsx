@@ -1,18 +1,16 @@
-import { LoadingResponse, IconMessage } from '../../ui';
-import { handlerTodos } from "../helpers";
+import { useContext } from 'react';
+import { TodosContext } from '../context';
+import { IconMessage } from '../../ui';
 import { TodoItem, TodoLoadingSkeleton } from "../components";
 import { faCircleExclamation, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
 
-export const TodoList = ({ searchedTodos, dataTodosLocalStorage}) => {
-    
-    const {todos, saveTodos, loading, error}= dataTodosLocalStorage;
-    const { completeTodo, deleteTodo } = handlerTodos(todos, saveTodos);
+export const TodoList = () => {
 
-
+    const { dataTodosLocalStorage, searchedTodos, completeTodo, deleteTodo } = useContext( TodosContext );
+    const {loading, error} = dataTodosLocalStorage;
     return (
         <>
-            {/* { loading && <LoadingResponse message={"Cargando TODOS..."}/> } */}
             { loading && <TodoLoadingSkeleton/>}
             { error   && <IconMessage icon={ faCircleExclamation } message='Ocurrio un error'/> }
 
@@ -24,8 +22,8 @@ export const TodoList = ({ searchedTodos, dataTodosLocalStorage}) => {
             {
                 searchedTodos.map( ( todo ) => 
                     <TodoItem 
-                        key={todo.id} 
-                        todo={todo}
+                        key={ todo.id } 
+                        todo={ todo }
                         onComplete={ () => completeTodo(todo.id) }
                         onDelete  ={ () => deleteTodo(todo.id) }
                     />

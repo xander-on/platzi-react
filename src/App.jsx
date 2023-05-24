@@ -1,46 +1,22 @@
-import { useState } from 'react';
 import { 
     TodoCounter, 
     TodoSearch, 
     TodoList, 
     CreateTodoButton
-} from './todos/components/index';
-import { useLocalStorage } from './hooks';
-import { getTodos } from './todos/helpers/';
+} from './todos/components/';
+import { TodosProvider } from './todos/context/';
+
 
 export const App = () => {
-    const [ searchValue, setSearchValue ] = useState('');
-
-    const { 
-            items:todos, 
-            saveItems:saveTodos,
-            loading,
-            error
-    } = useLocalStorage('TODOS_V1', []);
-
-    const dataTodosLocalStorage = { todos, saveTodos, loading, error };
-    const { totalTodos, completedTodos, searchedTodos} = getTodos(todos, searchValue);
-
     return (
-        <>  
+        <TodosProvider>  
             <div className='container'>
-                <TodoCounter completed={completedTodos} total={totalTodos}/>
-
-                <TodoSearch 
-                    searchValue={searchValue}
-                    setSearchValue={setSearchValue}
-                />
-
-                <TodoList 
-                    searchedTodos={searchedTodos}
-                    dataTodosLocalStorage={dataTodosLocalStorage}   
-                />
-                    
-
+                <TodoCounter/>
+                <TodoSearch />
+                <TodoList />  
                 <CreateTodoButton />
             </div>
-           
-        </>
+        </TodosProvider>
     );
 }
 
