@@ -7,12 +7,12 @@ import {
     CreateTodoButton,
     TodoForm
 } from './components/';
-import { ModalContainer } from '../ui'; 
 
 export const TodosApp = () => {
 
     const { 
-        openModalTodosState:{ openModal, setOpenModal }
+        openModalTodosState:{ openModal, setOpenModal },
+        actionsTodos:{ addTodo }
     } = useContext( TodosContext );
 
     return (
@@ -22,17 +22,7 @@ export const TodosApp = () => {
             <TodoSearch />
             <TodoList />  
             <CreateTodoButton />
-
-            
-            <ModalContainer 
-                openModal   ={openModal} 
-                setOpenModal={setOpenModal}
-                title       = {'Agrega un nuevo Todo'}
-            >
-                <TodoForm />
-            </ModalContainer>
-            
-            
+            <TodoForm/>
         </div>
     );
 }

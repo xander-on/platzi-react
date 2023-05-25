@@ -5,33 +5,28 @@ import { ButtonPrimary, ButtonSecondary } from './';
 export const ModalContainer = ({ 
     children, 
     openModal, 
-    setOpenModal, 
     title,
-    acctionSuccess
+    actionPrimary,
+    actionSecondary,
+    isDisabledButton,
 }) => {
     
     const modalRoot = document.getElementById('modal');
 
     if(!openModal) return (<></>);
-
-
-    const closeModal = () => setOpenModal(false);
-
-    const actionPrincipal = () => {
-        acctionSuccess();
-    }
+    
 
     return ReactDOM.createPortal(
 
         <div className="modal-background">
             <div className="modal-container">
-                <h3> {title} </h3>
+                <h2> {title} </h2>
 
                 {children}
 
                 <div className="TodoForm-buttonContainer">
-                    <ButtonSecondary text={'Cancelar'} action={ closeModal } />
-                    <ButtonPrimary   text={'Guardar'}  action={ actionPrincipal }/>
+                    <ButtonSecondary text={'Cancelar'} action={ actionSecondary } />
+                    <ButtonPrimary   text={'Guardar'}  action={ actionPrimary } isDisabledButton={isDisabledButton}/>
                 </div>
 
             </div>

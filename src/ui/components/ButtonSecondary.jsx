@@ -1,6 +1,7 @@
 import '../styles/ButtonSecondary.css';
 
-export const ButtonSecondary = ({ action, text }) => {
+export const ButtonSecondary = ({ text, action }) => {
+
     return (
         <button 
             className={"TodoForm-button TodoForm-button--cancel"}

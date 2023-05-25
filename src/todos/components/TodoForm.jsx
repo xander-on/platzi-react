@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { TodosContext } from '../context';
+import { ModalContainer } from '../../ui'; 
 import '../styles/todoForm.css';
 
 
@@ -8,7 +9,7 @@ export const TodoForm = () => {
     const [newTodoValue, setNewTodoValue] = useState('');
 
     const { 
-        openModalTodosState:{ setOpenModal },
+        openModalTodosState:{ openModal, setOpenModal },
         actionsTodos  :{ addTodo } 
     } = useContext( TodosContext );
 
@@ -19,42 +20,38 @@ export const TodoForm = () => {
         if(!isDescriptionValid) return;
         addTodo(newTodoValue.trim());
         setOpenModal(false);
+        setNewTodoValue('');
     };
     
-    // const onCancel = () => {
-    //     setOpenModal(false);
-    // };
+    const onCancel = () => {
+        setNewTodoValue('');
+        setOpenModal(false);
+    };
 
     const onChange = (event) => {
         setNewTodoValue(event.target.value);
     };
 
     return (
-        <form onSubmit={ onSubmit }>
+
+        <ModalContainer 
+            openModal         = { openModal } 
+            title             = {'Agrega un nuevo Todo'}
+            actionPrimary     = { onSubmit }
+            actionSecondary   = { onCancel }
+            isDisabledButton  = {!isDescriptionValid}
+        >
+            <form >
+        
+                <textarea 
+                    name     = "newTodoDescription" 
+                    value    = {newTodoValue}
+                    onChange = {onChange}
+                ></textarea>
+
+            </form>
+        </ModalContainer>
             
-            <textarea 
-                name     = "newTodoDescription" 
-                value    = {newTodoValue}
-                onChange = {onChange}
-            ></textarea>
-
-            {/* <div className="TodoForm-buttonContainer">
-                <button 
-                    className= "TodoForm-button TodoForm-button--cancel"
-                    onClick  = { onCancel }
-                >
-                    Cancelar
-                </button>
-
-                <button 
-                    className= {`TodoForm-button TodoForm-button--add ${isDescriptionValid ? '' : 'disabled'}`} 
-                    type     = "submit"
-                    disabled = { !isDescriptionValid }
-                >
-                    Añadir
-                </button>
-            </div> */}
-
-        </form>
+        
     );
 }
