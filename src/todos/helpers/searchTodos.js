@@ -1,5 +1,3 @@
-
-
 export const searchTodos  = (todosAvailable=[], searchValue) => {
 
     const searchedTodos = todosAvailable.filter( todo => 

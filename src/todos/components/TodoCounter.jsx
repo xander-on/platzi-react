@@ -4,7 +4,8 @@ import '../styles/todoCounter.css';
 
 export const TodoCounter = () => {
 
-    const { totalTodos, completedTodos } = useContext( TodosContext );
+    const { dataTodos } = useContext( TodosContext );
+    const { completedTodos, totalTodos } = dataTodos;
 
     return(
         <div className="TodoCounter">

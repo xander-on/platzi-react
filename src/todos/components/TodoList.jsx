@@ -8,13 +8,11 @@ import { faCircleExclamation, faBoxOpen } from "@fortawesome/free-solid-svg-icon
 export const TodoList = () => {
 
     const { 
-        dataTodosLocalStorage, 
-        searchedTodos, 
-        completeTodo, 
-        deleteTodo 
+        dataTodosLocalStorage: { loading, error },
+        dataTodos            : { searchedTodos },
+        actionsTodos         : { completeTodo, deleteTodo }
     } = useContext( TodosContext );
-
-    const {loading, error} = dataTodosLocalStorage;
+    
     
     return (
         <>

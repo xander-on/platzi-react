@@ -1,9 +1,12 @@
 import { TodosApp } from "./todos/TodosApp";
+import { TodosProvider } from "./todos/context";
 
 
 export const App = () => {
     return (
-        <TodosApp />
+        <TodosProvider >
+            <TodosApp />
+        </TodosProvider>
     );
 }
 
