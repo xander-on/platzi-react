@@ -1,0 +1,23 @@
+.modal-container {
+    width: 90%;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 33px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-background {
+    background-color: rgba(32,35,41,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
