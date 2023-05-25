@@ -22,9 +22,11 @@ export const ModalContainer = ({
             <div className="modal-container">
                 <h2> {title} </h2>
 
-                {children}
+                <div className="modal-main">
+                    {children}
+                </div>
 
-                <div className="TodoForm-buttonContainer">
+                <div className="Modal-buttonContainer">
                     <ButtonSecondary text={'Cancelar'} action={ actionSecondary } />
                     <ButtonPrimary   text={'Guardar'}  action={ actionPrimary } isDisabledButton={isDisabledButton}/>
                 </div>

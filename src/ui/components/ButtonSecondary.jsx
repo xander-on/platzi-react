@@ -4,7 +4,7 @@ export const ButtonSecondary = ({ text, action }) => {
 
     return (
         <button 
-            className={"TodoForm-button TodoForm-button--cancel"}
+            className={"Modal-button Modal-button--cancel"}
             onClick  ={ action }
         >
             {text}

@@ -1,3 +1,4 @@
 export * from './ThemeOptions';
-export * from './ButtonTheme';
-export * from './ColorThemeItem';
+export * from './ThemeButton';
+export * from './ThemeColorItem';
+export * from './ThemeModal';

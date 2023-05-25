@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context";
+import '../styles/ThemeColorItem.css';
 
-export const ColorThemeItem = ({ color }) => {
+export const ThemeColorItem = ({ color }) => {
 
     const { 
-        colorThemeState: { setColorTheme }
+        colorThemeState: { colorTheme, setColorTheme,  }
     } = useContext( ThemeContext );
 
     const handleOptionChange = (event) => {
@@ -12,8 +13,14 @@ export const ColorThemeItem = ({ color }) => {
         setColorTheme(event.target.value);
     };
 
+    const isSelectedColor = () => 
+        colorTheme === color 
+            ? 'isSelectedColor'
+            : ''
+
+
     return (
-        <div>
+        <>
             <input 
                 type    = "radio" 
                 id      = {color} 
@@ -21,9 +28,13 @@ export const ColorThemeItem = ({ color }) => {
                 value   = {color}
                 onChange= { handleOptionChange }
             />
-            <label htmlFor={color}>
-                {color}
+            <label 
+                htmlFor={color} 
+                style  ={{ background:color }}
+                className={ isSelectedColor() }
+            >
+                {/* {color} */}
             </label>
-        </div>
+        </>
     );
 }

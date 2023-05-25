@@ -21,3 +21,8 @@
     right: 0;
     bottom: 0;
 }
+
+.modal-main{
+    min-height: 150px;
+    width: 100%;
+}

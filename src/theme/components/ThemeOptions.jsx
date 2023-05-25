@@ -1,27 +1,23 @@
-import { useContext } from "react";
-import { ColorThemeItem } from "./";
-import { ThemeContext } from "../../context";
+import { ThemeColorItem } from "./";
 
 export const ThemeOptions = () => {
 
-    const { 
-        openModalThemeState: { setOpenModalTheme }
-    } = useContext( ThemeContext );
-
-    const closeModalTheme = () => setOpenModalTheme(false);
     
     const themeColors = [ 'red', 'blue', 'yellow', 'green', 'pink'];
 
     return (
         <>
+            <h4>Color del tema:</h4>
+            <div className="theme-color-container">
             {
                 themeColors.map( color => 
-                    <ColorThemeItem 
+                    <ThemeColorItem 
                         key      = { color } 
                         color    = { color }
                     />
                 )
             }
+            </div>
         </>
     );
 }

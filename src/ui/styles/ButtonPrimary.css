@@ -1,4 +1,4 @@
-.TodoForm-buttonContainer {
+.Modal-buttonContainer {
     margin-top: 14px;
     display: flex;
     justify-content: space-between;
@@ -6,7 +6,7 @@
     width: 100%;
   }
   
-  .TodoForm-button {
+  .Modal-button {
     cursor: pointer;
     display: inline-block;
     font-size: 20px;
@@ -19,23 +19,23 @@
     font-family: 'Montserrat';
   }
   
-  .TodoForm-button--add {
+  .Modal-button--add {
     background: #61DAFA;
     /* box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5); */
   }
 
-  .TodoForm-button--add:hover {
+  .Modal-button--add:hover {
     /* background: #61DAFA; */
     box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
   }
 
-  .TodoForm-button--add.disabled {
+  .Modal-button--add.disabled {
     background: #eeeeee;
     box-shadow: none;
     color: #b8b8b8;
   }
   
-  /* .TodoForm-button--cancel {
+  /* .Modal-button--cancel {
     background: transparent;
     border: 1px solid #838383;
     color: #838383;

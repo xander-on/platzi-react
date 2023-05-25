@@ -4,7 +4,7 @@ export const ButtonPrimary = ({ text, action, isDisabledButton=false }) => {
     
     return (
         <button 
-            className= {`TodoForm-button TodoForm-button--add ${isDisabledButton?'disabled': ''}`}
+            className= {`Modal-button Modal-button--add ${isDisabledButton?'disabled': ''}`}
             onClick  = { action }
             disabled = { isDisabledButton }
         >
