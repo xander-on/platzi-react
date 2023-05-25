@@ -1,12 +1,15 @@
+import { ThemeProvider } from "./context";
 import { TodosApp } from "./todos/TodosApp";
 import { TodosProvider } from "./todos/context";
 
 
 export const App = () => {
     return (
-        <TodosProvider >
-            <TodosApp />
-        </TodosProvider>
+        <ThemeProvider>
+            <TodosProvider >
+                <TodosApp />
+            </TodosProvider>
+        </ThemeProvider>
     );
 }
 

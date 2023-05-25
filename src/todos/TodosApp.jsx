@@ -11,7 +11,9 @@ import { ModalContainer } from '../ui';
 
 export const TodosApp = () => {
 
-    const { openModalState:{ openModal } } = useContext( TodosContext );
+    const { 
+        openModalTodosState:{ openModal, setOpenModal }
+    } = useContext( TodosContext );
 
     return (
 
@@ -22,7 +24,11 @@ export const TodosApp = () => {
             <CreateTodoButton />
 
             
-            <ModalContainer open={openModal}>
+            <ModalContainer 
+                openModal   ={openModal} 
+                setOpenModal={setOpenModal}
+                title       = {'Agrega un nuevo Todo'}
+            >
                 <TodoForm />
             </ModalContainer>
             

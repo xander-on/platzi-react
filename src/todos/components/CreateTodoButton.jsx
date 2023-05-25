@@ -4,7 +4,7 @@ import { TodosContext } from '../context';
 
 export const CreateTodoButton = () => {
     const { 
-        openModalState: {setOpenModal, openModal} 
+        openModalTodosState: {setOpenModal, openModal} 
     } = useContext(TodosContext);
     
     const handlerOpenModal = () => setOpenModal(state => !state)
@@ -12,7 +12,7 @@ export const CreateTodoButton = () => {
     return (
         <button 
             className={`CreateTodoButton ${openModal ? 'active': ''}`}
-            onClick={ handlerOpenModal }
+            onClick  ={ handlerOpenModal }
         >
             +
         </button>

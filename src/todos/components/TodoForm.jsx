@@ -8,7 +8,7 @@ export const TodoForm = () => {
     const [newTodoValue, setNewTodoValue] = useState('');
 
     const { 
-        openModalState:{ setOpenModal },
+        openModalTodosState:{ setOpenModal },
         actionsTodos  :{ addTodo } 
     } = useContext( TodosContext );
 
@@ -21,9 +21,9 @@ export const TodoForm = () => {
         setOpenModal(false);
     };
     
-    const onCancel = () => {
-        setOpenModal(false);
-    };
+    // const onCancel = () => {
+    //     setOpenModal(false);
+    // };
 
     const onChange = (event) => {
         setNewTodoValue(event.target.value);
@@ -31,16 +31,14 @@ export const TodoForm = () => {
 
     return (
         <form onSubmit={ onSubmit }>
-            <label htmlFor="newTodoDescription">
-                Escribe tu nuevo TODO
-            </label>
+            
             <textarea 
                 name     = "newTodoDescription" 
                 value    = {newTodoValue}
                 onChange = {onChange}
             ></textarea>
 
-            <div className="TodoForm-buttonContainer">
+            {/* <div className="TodoForm-buttonContainer">
                 <button 
                     className= "TodoForm-button TodoForm-button--cancel"
                     onClick  = { onCancel }
@@ -55,7 +53,7 @@ export const TodoForm = () => {
                 >
                     Añadir
                 </button>
-            </div>
+            </div> */}
 
         </form>
     );
