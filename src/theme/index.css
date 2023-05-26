@@ -23,3 +23,36 @@ body {
 .color-theme{
   color: red;
 }
+
+
+:root {
+  --color-primary: red;
+}
+
+.color-red{
+  --color-primary: red;
+}
+
+.color-blue{
+  --color-primary: blue;
+}
+
+.color-yellow{
+  --color-primary: yellow;
+}
+
+.color-pink{
+  --color-primary: pink;
+}
+
+.color-green{
+  --color-primary: green;
+}
+
+.color-primary{
+  color: var(--color-primary);
+}
+
+.background-primary{
+  background-color: var(--color-primary);
+}

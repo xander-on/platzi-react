@@ -26,6 +26,7 @@ export const ThemeModal = () => {
             title           = { 'Configuracion del tema' }
             actionPrimary   = { actionPrimary }
             actionSecondary = { onCancel }
+            isActionsAvaible = { false }
         >
             <ThemeOptions />
         </ModalContainer>

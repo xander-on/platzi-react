@@ -11,8 +11,8 @@ export const TodoCounter = () => {
         <div className="TodoCounter">
             <h1 >
                 Has completado 
-                <span className='color-theme'> { completedTodos} </span> de 
-                <span className='color-theme'> {totalTodos} </span> TODOS
+                <span className='color-primary'> { completedTodos} </span> de 
+                <span className='color-primary'> {totalTodos} </span> TODOS
             </h1>
         </div>
     );

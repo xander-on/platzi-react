@@ -4,7 +4,8 @@
 }
 
 .CreateTodoButton {
-    background-color: #61DAFA;
+    /* background-color: #61DAFA; */
+    background-color: var(--color-primary);
     border: none;
     border-radius: 50%;
     cursor: pointer;

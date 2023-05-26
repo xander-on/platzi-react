@@ -5,13 +5,11 @@ import '../styles/ThemeColorItem.css';
 export const ThemeColorItem = ({ color }) => {
 
     const { 
-        colorThemeState: { colorTheme, setColorTheme,  }
+        colorThemeState: { colorTheme, setColorTheme },
     } = useContext( ThemeContext );
 
-    const handleOptionChange = (event) => {
-        console.log(`cambie de color a ${event.target.value}`);
+    const onOptionChange = (event) => 
         setColorTheme(event.target.value);
-    };
 
     const isSelectedColor = () => 
         colorTheme === color 
@@ -26,7 +24,7 @@ export const ThemeColorItem = ({ color }) => {
                 id      = {color} 
                 name    = "colorOptions" 
                 value   = {color}
-                onChange= { handleOptionChange }
+                onChange= { onOptionChange }
             />
             <label 
                 htmlFor={color} 
