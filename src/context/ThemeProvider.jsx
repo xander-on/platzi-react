@@ -3,31 +3,29 @@ import { ThemeContext } from './';
 
 export const ThemeProvider = ({ children }) => {
 
-    const [colorTheme, setColorTheme] = useState('red');
-    const colorThemeState = { colorTheme, setColorTheme };
-
     const [openModalTheme, setOpenModalTheme] = useState(false);
     const openModalThemeState = { openModalTheme, setOpenModalTheme }
 
-    useEffect(() => {
-        cambiarColorApp(colorTheme)
-    }, [colorTheme])
+    const [colorTheme, setColorTheme] = useState('red');
+    const colorThemeState = { colorTheme, setColorTheme };
 
+    const [darkMode, setDarkMode] = useState(false);
+    const darkModeState = { darkMode, setDarkMode };
 
-    const cambiarColorApp = (color) => {
-        const root = document.querySelector('body');
-        console.log(root);
-        root.className='';
-        root.classList.add(`color-${color}`);
+    const setThemeApp = () => {
+        const body = document.querySelector('body');
+        body.className = "";
+        body.classList.add( darkMode ? 'darkmode' : 'lightmode' );
+        body.classList.add(`color-${colorTheme}`);
     }
 
-    const handlerThemeColor = { cambiarColorApp }
-
+    useEffect( setThemeApp, [colorTheme, darkMode] );
+    
     return (
         <ThemeContext.Provider value={{
             colorThemeState,
             openModalThemeState,
-            handlerThemeColor
+            darkModeState,
         }}>
             { children }
         </ThemeContext.Provider>

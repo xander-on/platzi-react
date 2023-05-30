@@ -1,0 +1,48 @@
+.dark-mode{
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: center;
+    font-size: 20px;
+}
+
+
+.switch{
+    height: 30px;
+    display: block;
+    border-radius: 20px;
+    /* background: var(--switch); */
+    background: gray;
+    width: 70px;
+    padding: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+.switch::before{
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    /* background: var(--switchSpinner); */
+    background: white;
+    border-radius: 50%;
+    transform: translate(0);
+    transition: .3s;
+    will-change: transform;
+}
+
+
+
+.dark-mode-title{
+    margin-right: 10px;
+    width: 20px;
+}
+
+.checkbox{
+    display: none;
+}
+
+.checkbox:checked ~ .switch::before{
+    transform: translate(40px);
+}
