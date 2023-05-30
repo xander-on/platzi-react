@@ -10,7 +10,7 @@ export const handlerTodos = ({todos, saveTodos}) => {
             completed   : false,
             deleted     : false
         });
-        saveTodos(newTodos)
+        saveTodos(newTodos);
     };
 
     const completeTodo = (id) => {

@@ -6,9 +6,6 @@ import { getTodos, handlerTodos, searchTodos } from "../helpers";
 
 export const TodosProvider = ({ children }) => {
 
-    const [ searchValue, setSearchValue ] = useState('');
-    const [ openModal, setOpenModal ]     = useState(false);
-
     const { 
         items:todos, 
         saveItems:saveTodos,
@@ -17,8 +14,12 @@ export const TodosProvider = ({ children }) => {
     } = useLocalStorage('TODOS_V1', []);
 
     const dataTodosLocalStorage = { todos, saveTodos, loading, error };
+
+    const [ searchValue, setSearchValue ] = useState('');
+    const searchValueState = { searchValue, setSearchValue };
+
+    const [ openModal, setOpenModal ] = useState(false);
     const openModalTodosState   = { openModal, setOpenModal };
-    const searchValueState      = { searchValue, setSearchValue };
 
     const { totalTodos, completedTodos, todosAvailable} = getTodos(todos);
     const { searchedTodos } = searchTodos(todosAvailable, searchValue);

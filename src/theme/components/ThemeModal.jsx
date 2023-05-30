@@ -9,11 +9,10 @@ export const ThemeModal = () => {
 
     const { 
         openModalThemeState: {setOpenModalTheme, openModalTheme},
-        colorThemeState:{ colorTheme }
     } = useContext( ThemeContext );
 
     const actionPrimary = () => {
-        console.log( colorTheme );
+        // console.log( colorTheme );
     }
 
     const onCancel = () => {

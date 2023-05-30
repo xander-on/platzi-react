@@ -5,13 +5,18 @@ import '../styles/ThemeColorItem.css';
 export const ThemeColorItem = ({ color }) => {
 
     const { 
-        colorThemeState: { colorTheme, setColorTheme },
+        dataThemeLocalStorage: { themeData, saveThemeData },
+        setThemeApp
     } = useContext( ThemeContext );
 
-    const onOptionChange = (event) => 
-        setColorTheme(event.target.value);
+    const handleOptionChange = (event) => {
+        const newColor = event.target.value;
+        const newThemeData = {...themeData, colorTheme: newColor };
+        setThemeApp(themeData.isDarkMode, newColor);
+        saveThemeData(newThemeData);
+    }
 
-    const isSelectedColor = colorTheme === color ? 'isSelectedColor' : '';
+    const isSelectedColor = themeData.colorTheme === color ? 'isSelectedColor' : '';
 
 
     return (
@@ -21,7 +26,7 @@ export const ThemeColorItem = ({ color }) => {
                 id      = {color} 
                 name    = "colorOptions" 
                 value   = {color}
-                onChange= { onOptionChange }
+                onChange= { handleOptionChange }
             />
             <label 
                 htmlFor={ color } 

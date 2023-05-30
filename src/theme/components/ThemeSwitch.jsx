@@ -8,10 +8,15 @@ import '../styles/ThemeSwitch.css';
 export const ThemeSwitch = () => {
 
     const { 
-        darkModeState:{darkMode, setDarkMode},
+        dataThemeLocalStorage: { themeData, saveThemeData },
+        setThemeApp
     } = useContext(ThemeContext);
 
-    const handleDarkMode = () => setDarkMode(!darkMode);
+    const handleDarkMode = () => {
+        const newThemeData = {...themeData, isDarkMode: !themeData.isDarkMode}
+        saveThemeData(newThemeData);
+        setThemeApp(!themeData.isDarkMode, themeData.colorTheme);
+    }
 
     return (
         <>  
@@ -21,7 +26,7 @@ export const ThemeSwitch = () => {
                 <div className="dark-mode">
                     <span className="dark-mode-title">
                         <FontAwesomeIcon 
-                            icon={darkMode ? faMoon : faSun}
+                            icon={themeData.isDarkMode ? faMoon : faSun}
                             fontSize={24}
                         />
                     </span>
@@ -30,7 +35,7 @@ export const ThemeSwitch = () => {
                         type     ="checkbox" 
                         className="checkbox" 
                         id       ="checkbox" 
-                        checked  ={darkMode}
+                        checked  ={themeData.isDarkMode}
                     />
                     <label className="switch" htmlFor="checkbox" />
                 </div>
