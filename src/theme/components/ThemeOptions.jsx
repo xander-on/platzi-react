@@ -1,23 +1,11 @@
-import { ThemeColorItem } from "./";
+import { ThemeColors, ThemeSwitch } from "./";
 
 export const ThemeOptions = () => {
 
-    
-    const themeColors = [ 'red', 'blue', 'yellow', 'green', 'pink'];
-
     return (
         <>
-            <h4>Color del tema:</h4>
-            <div className="theme-color-container">
-            {
-                themeColors.map( color => 
-                    <ThemeColorItem 
-                        key      = { color } 
-                        color    = { color }
-                    />
-                )
-            }
-            </div>
+            <ThemeSwitch />
+            <ThemeColors />
         </>
     );
 }

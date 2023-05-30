@@ -26,27 +26,27 @@ body {
 
 
 :root {
-  --color-primary: red;
+  --color-primary: rgb(206, 5, 5);
 }
 
 .color-red{
-  --color-primary: red;
+  --color-primary: rgb(206, 5, 5);
 }
 
 .color-blue{
-  --color-primary: blue;
+  --color-primary: rgb(0, 42, 156);
 }
 
 .color-yellow{
-  --color-primary: yellow;
+  --color-primary: rgb(214, 214, 0);
 }
 
 .color-pink{
-  --color-primary: pink;
+  --color-primary: rgb(235, 136, 152);
 }
 
 .color-green{
-  --color-primary: green;
+  --color-primary: rgb(67, 182, 0);
 }
 
 .color-primary{
@@ -55,4 +55,5 @@ body {
 
 .background-primary{
   background-color: var(--color-primary);
+  color: white;
 }

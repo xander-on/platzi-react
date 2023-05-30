@@ -13,9 +13,11 @@ export const TodoItem = ({ todo, onComplete, onDelete }) => {
           className={`Icon Icon-check ${completed ? 'Icon-check--active' : ''}`}
           onClick={onComplete}
         >
-          {completed 
-            ? <FontAwesomeIcon icon={faCircleCheck} />
-            : <FontAwesomeIcon icon={faCircle}/>
+          {
+            <FontAwesomeIcon 
+              icon ={ completed ? faCircleCheck : faCircle}
+              className={ completed ? 'color-primary': ''  }
+            />
           }
         </span>
 

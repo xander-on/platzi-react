@@ -9,5 +9,5 @@
 }
 
 .btn-close-modal:hover{
-    color: red;
+    color: var(--color-primary);
 }

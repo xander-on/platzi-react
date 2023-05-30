@@ -28,6 +28,6 @@
   }
   
   textarea:focus {
-    outline-color: #61DAFA;
+    outline-color: var(--color-primary);
   }
   
