@@ -6,16 +6,19 @@ export const ThemeColors = () => {
 
     return (
         <>
-            <h4>Color del tema:</h4>
             <div className="theme-color-container">
-            {
-                themeColors.map( color => 
-                    <ThemeColorItem 
-                        key      = { color } 
-                        color    = { color }
-                    />
-                )
-            }
+                <h4 className="subtitle">Color del tema:</h4>
+                <div className="colors-container">
+                    {
+                        themeColors.map( color => 
+                            <ThemeColorItem 
+                                key      = { color } 
+                                color    = { color }
+                            />
+                        )
+                    }
+                </div>
+           
             </div>
         </>
     );

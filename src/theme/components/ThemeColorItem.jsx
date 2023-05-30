@@ -11,10 +11,7 @@ export const ThemeColorItem = ({ color }) => {
     const onOptionChange = (event) => 
         setColorTheme(event.target.value);
 
-    const isSelectedColor = () => 
-        colorTheme === color 
-            ? 'isSelectedColor'
-            : ''
+    const isSelectedColor = colorTheme === color ? 'isSelectedColor' : '';
 
 
     return (
@@ -27,11 +24,10 @@ export const ThemeColorItem = ({ color }) => {
                 onChange= { onOptionChange }
             />
             <label 
-                htmlFor={color} 
-                style  ={{ background:color }}
-                className={ isSelectedColor() }
+                htmlFor={ color } 
+                style  ={{ background:color, marginRight:12 }}
+                className={ isSelectedColor }
             >
-                {/* {color} */}
             </label>
         </>
     );

@@ -2,7 +2,7 @@
     width: 90%;
     max-width: 300px;
     background-color: #fff;
-    padding: 33px 40px;
+    padding: 40px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* color: white; */
     position: fixed;
     top: 0;
     left: 0;
@@ -26,4 +25,15 @@
 .modal-main{
     min-height: 150px;
     width: 100%;
+}
+
+.modal-main > *{
+    margin-bottom: 24px;
+}
+
+.modal-container .title{
+    margin-top: 0;
+}
+.modal-container .subtitle{
+    margin-bottom: 12px;
 }

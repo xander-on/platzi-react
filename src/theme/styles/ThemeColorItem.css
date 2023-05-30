@@ -1,7 +1,7 @@
-.theme-color-container{
+.theme-color-container .colors-container{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .theme-color-container input{

@@ -14,17 +14,17 @@ export const ThemeSwitch = () => {
     const handleDarkMode = () => setDarkMode(!darkMode);
 
     return (
-        <>
-            <h4>ThemeSwitch</h4>
+        <>  
             <div className="theme-switch-container">
+                <h4 className='subtitle'>ThemeSwitch</h4>
                     
                 <div className="dark-mode">
-                    <p className="dark-mode-title">
+                    <span className="dark-mode-title">
                         <FontAwesomeIcon 
                             icon={darkMode ? faMoon : faSun}
                             fontSize={24}
                         />
-                    </p>
+                    </span>
                     <input 
                         onChange ={handleDarkMode} 
                         type     ="checkbox" 
@@ -32,8 +32,7 @@ export const ThemeSwitch = () => {
                         id       ="checkbox" 
                         checked  ={darkMode}
                     />
-                    <label className="switch" htmlFor="checkbox">
-                    </label>
+                    <label className="switch" htmlFor="checkbox" />
                 </div>
                     
                 
