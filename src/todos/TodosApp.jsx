@@ -1,3 +1,4 @@
+import { useContext, useEffect } from 'react';
 import { 
     TodoCounter, 
     TodoSearch, 
@@ -6,11 +7,13 @@ import {
     TodoForm
 } from './components/';
 
-export const TodosApp = () => {
+export const TodosApp = () => {   
     
+
+
     return (
 
-        <div className='container todo-app'>
+        <div className='container todo-app' >
             <TodoCounter/>
             <TodoSearch />
             <TodoList />  

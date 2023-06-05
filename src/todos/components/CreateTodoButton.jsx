@@ -4,11 +4,12 @@ import { TodosContext } from '../context';
 
 export const CreateTodoButton = () => {
     const { 
-        openModalTodosState: {setOpenModal, openModal} 
+        openModalTodosState: {setOpenModal, openModal}, 
     } = useContext(TodosContext);
+
     
     const handlerOpenModal = () => setOpenModal(state => !state)
-    
+
     return (
         <button 
             className={`CreateTodoButton ${openModal ? 'active': ''}`}

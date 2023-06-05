@@ -9,21 +9,23 @@ export const ThemeProvider = ({ children }) => {
         saveItems:saveThemeData,
         loading,
         error
-    } = useLocalStorage('THEME_DATA', {isDarkMode:false, colorTheme: ''});
+    } = useLocalStorage('THEME_DATA', {isDarkMode:false, colorTheme: 'gray'});
 
     const dataThemeLocalStorage = { themeData, saveThemeData, loading, error };
+    // console.log(themeData)
 
     const [openModalTheme, setOpenModalTheme] = useState(false);
     const openModalThemeState = { openModalTheme, setOpenModalTheme }
 
 
-    const setThemeApp = (darkMode, colorTheme) => {
+    const setThemeApp = (xdarkMode, xcolorTheme) => {
         const body = document.querySelector('body');
         body.className = "";
-        body.classList.add( darkMode ? 'darkmode' : 'lightmode' );
-        body.classList.add(`color-${ colorTheme }`);
+        body.classList.add( xdarkMode ? 'darkmode' : 'lightmode' );
+        body.classList.add(`color-${ xcolorTheme }`);
     }
 
+    //carga inicial del tema
     setThemeApp(themeData.isDarkMode, themeData.colorTheme);
     
     return (

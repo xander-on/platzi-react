@@ -11,9 +11,6 @@ export const ThemeModal = () => {
         openModalThemeState: {setOpenModalTheme, openModalTheme},
     } = useContext( ThemeContext );
 
-    const actionPrimary = () => {
-        // console.log( colorTheme );
-    }
 
     const onCancel = () => {
         setOpenModalTheme(false);
@@ -23,7 +20,6 @@ export const ThemeModal = () => {
         <ModalContainer 
             openModal       = { openModalTheme }
             title           = { 'Configuracion del tema' }
-            actionPrimary   = { actionPrimary }
             actionSecondary = { onCancel }
             isActionsAvaible = { false }
         >

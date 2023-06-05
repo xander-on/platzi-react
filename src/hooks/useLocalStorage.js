@@ -41,7 +41,7 @@ export const useLocalStorage = ( itemName, initialValue ) => {
             }    
         },3000);
         
-    }, [initialValue, itemName ]);
+    }, [ ]);
 
     
     const saveItems = (newItem) => {
