@@ -4,7 +4,7 @@ import { faCube }  from "@fortawesome/free-solid-svg-icons";
 export const IconMessage = ({ icon=faCube, message='' }) => {
     return (
         <>  
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', color: 'var(--color-text2)' }}>
                 <br />
                 <br />
                 <br />

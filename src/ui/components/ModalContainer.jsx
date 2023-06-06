@@ -12,6 +12,7 @@ export const ModalContainer = ({
     title,
     actionPrimary,
     actionSecondary,
+    textActionPrimary = 'Agregar',
     isDisabledButton,
     isActionsAvaible = true,
 }) => {
@@ -38,7 +39,7 @@ export const ModalContainer = ({
                     isActionsAvaible
                         ?   <div className="Modal-buttonContainer">
                                 <ButtonSecondary text={'Cancelar'} action={ actionSecondary } />
-                                <ButtonPrimary   text={'Guardar'}  action={ actionPrimary } isDisabledButton={isDisabledButton}/>
+                                <ButtonPrimary   text={textActionPrimary}  action={ actionPrimary } isDisabledButton={isDisabledButton}/>
                             </div>
                         :   <></>
                 }

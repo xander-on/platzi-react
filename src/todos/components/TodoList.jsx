@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { TodosContext } from '../context';
 import { IconMessage } from '../../ui';
-import { TodoItem, TodoLoadingSkeleton } from "../components";
+import { TodoDeleteConfirm, TodoItem, TodoLoadingSkeleton } from "../components";
 import { faCircleExclamation, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -10,10 +10,19 @@ export const TodoList = () => {
     const { 
         dataTodosLocalStorage: { loading, error },
         dataTodos            : { searchedTodos },
-        actionsTodos         : { completeTodo, deleteTodo }
+        actionsTodos         : { completeTodo, deleteTodo },
+        openModalDeleteState: { setOpenModalDelete }
+
     } = useContext( TodosContext );
+
     
-    
+    const [todoDelete, setTodoDelete] = useState({});
+
+    const openModalDelete = (todo) => {
+        setOpenModalDelete(true);
+        setTodoDelete(todo);
+    }
+
     return (
         <>
             { loading && <TodoLoadingSkeleton/>}
@@ -27,13 +36,17 @@ export const TodoList = () => {
             {
                 searchedTodos.map( ( todo ) => 
                     <TodoItem 
-                        key={ todo.id } 
-                        todo={ todo }
-                        onComplete={ () => completeTodo(todo.id) }
-                        onDelete  ={ () => deleteTodo(todo.id) }
+                        key = { todo.id } 
+                        todo = { todo }
+                        onComplete= { () => completeTodo(todo.id) }
+                        onDelete  = { () => deleteTodo(todo.id) }
+                        openModalDelete = {openModalDelete}
                     />
                 )
             }
+
+            <TodoDeleteConfirm todo={todoDelete}/>
+
         </>
     );
 }

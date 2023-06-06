@@ -1,3 +1,4 @@
+export * from "./TodoDeleteConfirm";
 export * from "./CreateTodoButton";
 export * from "./TodoCounter";
 export * from "./TodoSearch";

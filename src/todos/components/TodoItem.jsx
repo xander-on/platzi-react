@@ -2,9 +2,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faCircle, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import '../styles/todoItem.css';
 
-export const TodoItem = ({ todo, onComplete, onDelete }) => {
+export const TodoItem = ({ todo, onComplete, onDelete, openModalDelete }) => {
 
   const { description, completed } = todo;
+
+  
+
+  
 
   return (
     <>
@@ -25,7 +29,7 @@ export const TodoItem = ({ todo, onComplete, onDelete }) => {
         
         <span 
           className='Icon Icon-delete'
-          onClick={onDelete}
+          onClick={()=>openModalDelete(todo)}
         >
           <FontAwesomeIcon icon={faTrash}/>
         </span>

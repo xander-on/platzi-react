@@ -3,6 +3,8 @@
   --color-secondary: rgb(185, 185, 185);
   
   --color-text: black;
+  --color-text2: rgba(0, 0, 0, .6);
+
   --background-color: rgb(242, 244, 245);
   --background-color2: rgb(255, 255, 255);
 
@@ -34,8 +36,11 @@ body {
 
 
 .darkmode{
-  --color-text: white;
   --color-secondary: rgb(104, 104, 104);
+  
+  --color-text: white;
+  --color-text2: rgba(255, 255, 255, .6);
+  
   --background-color: rgb(28, 34, 37);
   --background-color2: rgb(27, 29, 30);
 

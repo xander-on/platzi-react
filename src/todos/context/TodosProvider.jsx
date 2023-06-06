@@ -28,6 +28,9 @@ export const TodosProvider = ({ children }) => {
     const dataTodos    = { totalTodos, completedTodos, searchedTodos };
     const actionsTodos = { addTodo, completeTodo, deleteTodo };
 
+    const [openModalDelete, setOpenModalDelete] = useState(false);
+    const openModalDeleteState = { openModalDelete, setOpenModalDelete };
+
     return(
         <TodosContext.Provider value={{
             searchValueState,
@@ -35,6 +38,7 @@ export const TodosProvider = ({ children }) => {
             dataTodosLocalStorage,
             dataTodos,
             actionsTodos,
+            openModalDeleteState,
         }}>
             { children }
         </TodosContext.Provider>
