@@ -1,5 +1,5 @@
 .TodoSearch {
-    background: #F9FBFC;
+    background: var(--background-color2);
     border-radius: 2px;
     border: 2px solid #202329;
     margin: 0 24px;

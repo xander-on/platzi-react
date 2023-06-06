@@ -24,7 +24,8 @@
 }
 
 .Modal-button--add.disabled {
-  background: #eeeeee;
+  background: var(--color-background-disabled);
   box-shadow: none;
-  color: #b8b8b8;
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
 }

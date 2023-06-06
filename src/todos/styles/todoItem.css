@@ -1,5 +1,6 @@
 .TodoItem {
-    background-color: #FAFAFA;
+    background-color: var(--background-color2);
+    color: var(--color-text);
     position: relative;
     display: flex;
     justify-content: center;

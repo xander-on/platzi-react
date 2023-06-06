@@ -1,4 +1,3 @@
-import { useContext, useEffect } from 'react';
 import { 
     TodoCounter, 
     TodoSearch, 
@@ -9,8 +8,6 @@ import {
 
 export const TodosApp = () => {   
     
-
-
     return (
 
         <div className='container todo-app' >

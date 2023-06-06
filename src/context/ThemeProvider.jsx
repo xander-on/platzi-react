@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ThemeContext } from './';
 import { useLocalStorage } from '../hooks';
 
@@ -9,7 +9,7 @@ export const ThemeProvider = ({ children }) => {
         saveItems:saveThemeData,
         loading,
         error
-    } = useLocalStorage('THEME_DATA', {isDarkMode:false, colorTheme: 'gray'});
+    } = useLocalStorage('THEME_DATA', {isDarkMode:true, colorTheme: ''});
 
     const dataThemeLocalStorage = { themeData, saveThemeData, loading, error };
     // console.log(themeData)

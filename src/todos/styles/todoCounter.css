@@ -8,6 +8,7 @@
 
 .TodoCounter h1 {
   font-weight: bold;
+  color: var(--color-text);
 }
 
 /* .TodoCounter span{

@@ -1,13 +1,25 @@
+:root {
+  --color-primary: rgb(190, 190, 190);
+  --color-secondary: rgb(185, 185, 185);
+  
+  --color-text: black;
+  --background-color: rgb(242, 244, 245);
+  --background-color2: rgb(255, 255, 255);
+
+  --color-text-disabled: rgb(167, 166, 166);
+  --color-background-disabled: rgb(213, 213, 213);
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: #F2F4F5;
-  color: #1E1E1F;
+  background: var(--background-color);
+  color: var(--color-text);
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 #root {
-  margin: 0 24px;
+  margin: 0 0px;
   position: relative;
   min-height: 100vh;
 }
@@ -20,13 +32,15 @@ body {
 }
 
 
-.color-theme{
-  color: red;
-}
 
+.darkmode{
+  --color-text: white;
+  --color-secondary: rgb(104, 104, 104);
+  --background-color: rgb(28, 34, 37);
+  --background-color2: rgb(27, 29, 30);
 
-:root {
-  --color-primary: rgb(190, 190, 190);
+  --color-text-disabled: rgb(167, 166, 166);
+  --color-background-disabled: rgb(48, 52, 54, 1);
 }
 
 .color-red{

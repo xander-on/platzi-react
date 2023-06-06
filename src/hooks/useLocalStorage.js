@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 // localStorage.setItem( 'TODOS_V1', JSON.stringify(defaultTodos) );
 
-export const useLocalStorage = ( itemName, initialValue ) => {
+export const useLocalStorage = ( itemName, initialValue, delay=0 ) => {
 
     const [items, setItems]     = useState(initialValue);
     const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ export const useLocalStorage = ( itemName, initialValue ) => {
                 setLoading(false);
                 setError(true);
             }    
-        },3000);
+        },delay);
         
     }, [ ]);
 

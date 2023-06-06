@@ -11,7 +11,7 @@ export const TodosProvider = ({ children }) => {
         saveItems:saveTodos,
         loading,
         error
-    } = useLocalStorage('TODOS_V1', []);
+    } = useLocalStorage('TODOS_V1', [], 3000);
 
     const dataTodosLocalStorage = { todos, saveTodos, loading, error };
 
