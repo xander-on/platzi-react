@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../context";
+import { ThemeContext } from "../context";
 import '../styles/ThemeColorItem.css';
 
 export const ThemeColorItem = ({ color }) => {

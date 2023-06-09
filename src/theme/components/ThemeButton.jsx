@@ -1,7 +1,7 @@
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { ThemeContext } from "../../context";
+import { ThemeContext } from "../context";
 import { ThemeModal } from ".";
 import '../styles/ThemeButton.css';
 

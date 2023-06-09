@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ThemeContext } from './';
-import { useLocalStorage } from '../hooks';
+import { useLocalStorage } from '../../hooks';
 
 export const ThemeProvider = ({ children }) => {
 

@@ -4,9 +4,11 @@ import {
     TodoList, 
     CreateTodoButton,
     TodoForm
-} from './components/';
+} from '../components';
 
-export const TodosApp = () => {   
+import '../styles/TodosScreen.css';
+
+export const TodosScreen = () => {   
     
     return (
 
@@ -16,10 +18,6 @@ export const TodosApp = () => {
             <TodoList />  
             <CreateTodoButton />
             <TodoForm/>
-            <br />
-            <br />
-            <br />
-            <br />
         </div>
     );
 }

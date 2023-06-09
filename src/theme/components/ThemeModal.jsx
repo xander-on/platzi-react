@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { ModalContainer } from '../../ui'; 
 import { ThemeOptions } from ".";
-import { ThemeContext } from '../../context';
+import { ThemeContext } from '../context';
 
 
 export const ThemeModal = () => {

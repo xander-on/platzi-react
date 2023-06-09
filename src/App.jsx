@@ -1,5 +1,5 @@
-import { ThemeProvider } from "./context";
-import { TodosApp } from "./todos/TodosApp";
+import { ThemeProvider } from "./theme/context/";
+import { TodosScreen } from "./todos/screens/TodosScreen";
 import { TodosProvider } from "./todos/context";
 import { ThemeButton } from "./theme/components/";
 import { CoverScreen } from "./ui";
@@ -12,7 +12,7 @@ export const App = () => {
             <TodosProvider >
                 <CoverScreen />
                 <ThemeButton />
-                <TodosApp />
+                <TodosScreen />
             </TodosProvider>
         </ThemeProvider>
     );
