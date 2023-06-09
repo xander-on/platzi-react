@@ -1,0 +1,6 @@
+deployment:
+  task:
+    - export DEPLOYPATH=/home/alexlnrd/apps.alexanderweb.cloud/todos-machine
+    - /usr/local/bin/npm ci --only=production
+    - /usr/local/bin/npm run build
+    - /bin/cp -R build/* $DEPLOYPATH
