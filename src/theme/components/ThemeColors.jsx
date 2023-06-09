@@ -2,7 +2,34 @@ import { ThemeColorItem } from "./";
 
 export const ThemeColors = () => {
     
-    const themeColors = [ 'red', 'blue', 'yellow', 'green', 'pink'];
+
+    const themeColors = [ 
+        {
+            name: 'red',
+            color: 'rgb(206, 5, 5)'
+        },
+
+        {
+            name: 'blue',
+            color: 'rgb(0, 42, 156)'
+        },
+
+        {
+            name: 'yellow',
+            color: 'rgb(214, 214, 0)'
+        },
+
+        {
+            name: 'pink',
+            color: 'rgb(235, 136, 152)'
+        },
+
+        {
+            name: 'green',
+            color: 'rgb(67, 182, 0)'
+        },
+    ];
+
 
     return (
         <>
@@ -12,7 +39,7 @@ export const ThemeColors = () => {
                     {
                         themeColors.map( color => 
                             <ThemeColorItem 
-                                key      = { color } 
+                                key      = { color.name } 
                                 color    = { color }
                             />
                         )

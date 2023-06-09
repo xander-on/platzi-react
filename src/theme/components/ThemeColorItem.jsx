@@ -16,21 +16,21 @@ export const ThemeColorItem = ({ color }) => {
         saveThemeData(newThemeData);
     }
 
-    const isSelectedColor = themeData.colorTheme === color ? 'isSelectedColor' : '';
+    const isSelectedColor = themeData.colorTheme === color.color ? 'isSelectedColor' : '';
 
 
     return (
         <>
             <input 
                 type    = "radio" 
-                id      = {color} 
+                id      = {color.name} 
                 name    = "colorOptions" 
-                value   = {color}
+                value   = {color.name}
                 onChange= { handleOptionChange }
             />
             <label 
-                htmlFor={ color } 
-                style  ={{ background:color, marginRight:12 }}
+                htmlFor  ={ color.name } 
+                style    ={{ background:color.color, marginRight:12 }}
                 className={ isSelectedColor }
             >
             </label>

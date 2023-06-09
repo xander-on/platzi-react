@@ -16,8 +16,6 @@ export const TodoDeleteConfirm = ({todo}) => {
     const [title, setTitle] = useState('Eliminar TODO');
 
     const onSubmit = () => {
-        console.log(todo.id);
-
         setLoading(true);
         deleteTodo(todo.id);
         setConfirDelete(true);
@@ -47,9 +45,13 @@ export const TodoDeleteConfirm = ({todo}) => {
             actionSecondary   = { onCancel }
             textActionPrimary = {'Eliminar'}
             isActionsAvaible  = {!confirmDelete}
-            title={title}
+            title             = {title}
         >
-            <TodoDeleteForm todo={todo} confirmDelete={confirmDelete} loading={loading}/>
+            <TodoDeleteForm 
+                todo={todo} 
+                confirmDelete={confirmDelete} 
+                loading={loading}
+            />
         </ModalContainer>
             
         
@@ -70,7 +72,6 @@ export const TodoDeleteForm = ({ todo, confirmDelete, loading }) => {
 
             { !confirmDelete && (
                 <form >
-                    {/* <h2>Deseas eliminar el TODO: </h2> */}
                     <h3 style={{ textAlign: 'center', color: 'var(--color-text2)' }}>
                         <i><b>{todo.description}</b></i>
                     </h3>
@@ -79,7 +80,6 @@ export const TodoDeleteForm = ({ todo, confirmDelete, loading }) => {
 
             {(!loading && confirmDelete) && (
                 <form >
-                    {/* <h2>Se ha eliminado el Todo: </h2> */}
                     <h3 style={{ textAlign: 'center', color: 'var(--color-text2)' }}>
                         <i><b>{todo.description}</b></i>
                     </h3>
