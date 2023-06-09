@@ -40,7 +40,7 @@ export const useLocalStorage = ( itemName, initialValue, delay=0 ) => {
                 setError(true);
             }    
         },delay);
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ ]);
 
     
