@@ -16,7 +16,7 @@ export const ThemeColorItem = ({ color }) => {
         saveThemeData(newThemeData);
     }
 
-    const isSelectedColor = themeData.colorTheme === color.color ? 'isSelectedColor' : '';
+    const isSelectedColor = themeData.colorTheme === color.name ? 'isSelectedColor' : '';
 
 
     return (
