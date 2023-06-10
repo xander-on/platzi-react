@@ -9,7 +9,7 @@ export const ThemeProvider = ({ children }) => {
         saveItems:saveThemeData,
         loading,
         error
-    } = useLocalStorage('THEME_DATA', {isDarkMode:true, colorTheme: ''});
+    } = useLocalStorage('THEME_DATA', {isDarkMode:true, colorTheme: 'yellow'});
 
     const dataThemeLocalStorage = { themeData, saveThemeData, loading, error };
     // console.log(themeData)
