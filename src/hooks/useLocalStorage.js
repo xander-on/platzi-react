@@ -1,18 +1,27 @@
-import { useEffect, useState } from "react";
-// const defaultTodos = [
-//     {id:1, description: 'Desayunar un pan', completed: true,  deleted: false },
-//     {id:2, description: 'Hacer limpieza',   completed: false, deleted: false },
-//     {id:3, description: 'Hacer ejercicio',  completed: true,  deleted: false },
-//     {id:4, description: 'Estudiar React',   completed: false, deleted: false },
-// ];
+import { useEffect, useReducer } from "react";
 
-// localStorage.setItem( 'TODOS_V1', JSON.stringify(defaultTodos) );
 
 export const useLocalStorage = ( itemName, initialValue, delay=0 ) => {
 
-    const [items, setItems]     = useState(initialValue);
-    const [loading, setLoading] = useState(true);
-    const [error, setError]     = useState(false);
+    const [state, dispatch] = useReducer(reducer, initialState({initialValue}));
+    const {error, loading, items} = state;
+
+
+    //ACTIONS CREATORS
+    const onError = (error) => dispatch({
+        type   : actionTypes.error,
+        payload: error
+    });
+
+    const onSuccess = (item) => dispatch({
+        type   : actionTypes.success,
+        payload: item
+    });
+
+    const onSave = (item) => dispatch({
+        type   : actionTypes.save,
+        payload: item
+    });
 
     
     useEffect(() => {
@@ -31,13 +40,11 @@ export const useLocalStorage = ( itemName, initialValue, delay=0 ) => {
                         itemValue=[];
                         throw new Error('Error al obtener los datos');
                     }
-                    setItems(itemValue);
+                    onSuccess(itemValue);
                 }
     
-                setLoading(false);
             }catch(error){
-                setLoading(false);
-                setError(true);
+                onError(error);
             }    
         },delay);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,8 +53,9 @@ export const useLocalStorage = ( itemName, initialValue, delay=0 ) => {
     
     const saveItems = (newItem) => {
         localStorage.setItem(itemName, JSON.stringify(newItem));
-        setItems(newItem);
+        onSave(newItem);
     }
+
 
     return {
         items,
@@ -56,3 +64,39 @@ export const useLocalStorage = ( itemName, initialValue, delay=0 ) => {
         error,
     };
 }
+
+
+const initialState = ({ initialValue }) => ({
+    error  :false,
+    loading:true,
+    items   :initialValue,
+});
+
+
+const actionTypes = {
+ error    : 'ERROR',
+ success  : 'SUCCESS',
+ save     : 'SAVE',
+}
+
+const reuducerObject = (state, payload) => ({
+    [actionTypes.error]:{
+        ...state,
+        error:true,
+    },
+
+    [actionTypes.success]:{
+        ...state,
+        error  :false,
+        loading:false,
+        items   :payload,
+    },
+
+    [actionTypes.save]:{
+        ...state,
+        items  :payload,
+    }
+});
+
+const reducer = (state, action) => 
+    reuducerObject(state, action.payload)[action.type] || state

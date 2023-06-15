@@ -13,32 +13,30 @@ export const TodosProvider = ({ children }) => {
         error
     } = useLocalStorage('TODOS_V1', [], 3000);
 
+    const [ searchValue, setSearchValue ]       = useState('');
+    const [ openModal, setOpenModal ]           = useState(false);
+    const [openModalDelete, setOpenModalDelete] = useState(false);
+
     const dataTodosLocalStorage = { todos, saveTodos, loading, error };
-
-    const [ searchValue, setSearchValue ] = useState('');
-    const searchValueState = { searchValue, setSearchValue };
-
-    const [ openModal, setOpenModal ] = useState(false);
+    const searchValueState      = { searchValue, setSearchValue };
     const openModalTodosState   = { openModal, setOpenModal };
+    const openModalDeleteState  = { openModalDelete, setOpenModalDelete };
 
     const { totalTodos, completedTodos, todosAvailable} = getTodos(todos);
+    const { addTodo, completeTodo, deleteTodo }         = handlerTodos(dataTodosLocalStorage);
     const { searchedTodos } = searchTodos(todosAvailable, searchValue);
-    const { addTodo, completeTodo, deleteTodo } = handlerTodos(dataTodosLocalStorage);
     
     const dataTodos    = { totalTodos, completedTodos, searchedTodos };
     const actionsTodos = { addTodo, completeTodo, deleteTodo };
-
-    const [openModalDelete, setOpenModalDelete] = useState(false);
-    const openModalDeleteState = { openModalDelete, setOpenModalDelete };
 
     return(
         <TodosContext.Provider value={{
             searchValueState,
             openModalTodosState,
+            openModalDeleteState,
             dataTodosLocalStorage,
             dataTodos,
             actionsTodos,
-            openModalDeleteState,
         }}>
             { children }
         </TodosContext.Provider>
